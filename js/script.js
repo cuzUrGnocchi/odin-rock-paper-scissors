@@ -29,3 +29,16 @@ function capitalize(str) {
     const firstLetter = str.charAt(0).toUpperCase();
     return firstLetter.concat(str.slice(1).toLowerCase());
 }
+
+function playRound(playerSelection, computerSelection) {
+    const result = determineWinner(playerSelection.toLowerCase(), computerSelection);
+    let message;
+    if (result === 1) {
+        message = `You Win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
+    } else if (result === -1) {
+        message = `You Lose! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
+    } else {
+        message = `Match is a tie`;
+    }
+    return message;
+}
