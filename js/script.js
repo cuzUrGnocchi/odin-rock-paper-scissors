@@ -12,3 +12,15 @@ function getComputerChoice() {
 
     return choice; 
 }
+
+// returns 1 if A wins, 0 on a tie and -1 if A loses
+function determineWinner(choiceA, choiceB) {
+    if (choiceA === 'rock' && choiceB === 'scissors' ||
+            choiceA === 'paper' && choiceB === 'rock'  ||
+            choiceA === 'scissors' && choiceB === 'paper') {
+        return 1;
+    } else if (choiceA === choiceB) {
+        return 0;
+    }
+    return -1;
+}
