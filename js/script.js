@@ -24,3 +24,8 @@ function determineWinner(choiceA, choiceB) {
     }
     return -1;
 }
+
+function capitalize(str) {
+    const firstLetter = str.charAt(0).toUpperCase();
+    return firstLetter.concat(str.slice(1).toLowerCase());
+}
