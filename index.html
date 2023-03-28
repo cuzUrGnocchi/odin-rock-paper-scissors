@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/script.js" defer></script>
     <title>Odin's Rock Paper Scissors</title>
 </head>
 <body>
-    <button data-choice="rock">Rock</button>
-    <button data-choice="paper">Paper</button>
-    <button data-choice="scissors">Scissors</button>
+    <div class="scoreboard">
+        <span class="round-counter center"></span>
+        <div>
+            <div class="player-side">
+                <span>You</span>
+                <span class="player-choice"></span>
+                <span class="player-score"></span>
+            </div>
+            <span>X</span>
+            <div class="cpu-side">
+                <span>CPU</span>
+                <span class="cpu-choice"></span>
+                <span class="cpu-score"></span>
+            </div>
+        </div>
+        <span class="message center"></span>
+    </div>
+    <div class="button-container">
+        <button data-choice="rock">Rock</button>
+        <button data-choice="paper">Paper</button>
+        <button data-choice="scissors">Scissors</button>
+    </div>
 </body>
 </html>
