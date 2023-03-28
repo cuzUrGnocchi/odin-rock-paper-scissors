@@ -1,3 +1,5 @@
+const buttons = document.querySelectorAll('button');
+
 function getComputerChoice() {
     let choice;
     const rng = Math.floor((Math.random() * 3));
@@ -30,14 +32,19 @@ function capitalize(str) {
     return firstLetter.concat(str.slice(1).toLowerCase());
 }
 
-function playRound(playerSelection, cpuSelection, scoreboard) {
+function playRound(event, scoreboard) {
+    const playerSelection = event.currentTarget.dataset.choice.toLowerCase();
+    const cpuSelection = getComputerChoice();
     const result = determineWinner(playerSelection.toLowerCase(), cpuSelection);
-    const updatedScore = updateScore(scoreboard, result);
+    let updatedScore;
+    if (scoreboard) {
+        updatedScore = updateScore(scoreboard, result);
+    }
     let message;
     if (result === 1) {
-        message = `You Win! ${capitalize(playerSelection)} beats ${capitalize(cpuSelection)}`;
+        message = `You Win! ${capitalize(playerSelection)} beats ${capitalize(cpuSelection)}.`;
     } else if (result === -1) {
-        message = `You Lose! ${capitalize(cpuSelection)} beats ${capitalize(playerSelection)}`;
+        message = `You Lose! ${capitalize(cpuSelection)} beats ${capitalize(playerSelection)}.`;
     } else {
         message = `Both players put out ${cpuSelection}. A tie!`;
     }
@@ -82,6 +89,9 @@ function showFinalMessage(scoreboard, roundsRemaining) {
     console.log(message);
 }
 
+buttons.forEach(btn => btn.addEventListener('click', playRound));
+
+/*
 function game() {
     let scoreboard = {
         playerScore: 0,
@@ -113,5 +123,4 @@ function game() {
     }
     showFinalMessage(scoreboard, roundsRemaining);
 }
-
-game();
+*/
